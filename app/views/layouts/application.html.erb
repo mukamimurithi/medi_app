@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title><%= yield(:title) %> | Medi App </title>
+      <title> Medi App</title>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim'%>
+        <!--[if It IE 9]>
+        <script src="//cdnjos.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+        </script>
+        <![endif]-->
   </head>
-
   <body>
-    <%= yield %>
+      <header class="nvbar navbar-fixed-top navbar-inverse">
+          <%= render 'layouts/header' %>
+          <dev class="container">
+          <%= link_to "medi app", '#', id: "logo" %>
+          <nav>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "home",  '#' %></li>
+                  <li><%= link_to "help", '#' %></li>
+                  <li><%= link_to "about", '#' %></li>
+              </ul>
+          </nav>
+          </div>
+      </header>
+      <div class="container">
+
+          <%= yield %>
+          </div>
   </body>
 </html>
